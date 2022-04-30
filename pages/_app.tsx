@@ -1,8 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app"
+import Head              from "next/head"
+import { appConfig }     from "../config/app.config"
+import "../styles/globals.css"
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const MainApp = ({ Component, pageProps }: AppProps) => {
+    return (
+        <>
+            <Head>
+                <title>{appConfig.title}</title>
+
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                />
+            </Head>
+
+            <Component {...pageProps} />
+        </>
+    )
 }
 
-export default MyApp
+export default MainApp
